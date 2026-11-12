@@ -21,4 +21,8 @@ public class StockFactory implements InstrumentFactory {
         // уточняются последующим редактированием инструмента в будущих семинарах.
         return new Stock(ticker, name, currency, "Unspecified", BigDecimal.ZERO);
     }
+
+    public Instrument create(String ticker, String name, Currency currency, BigDecimal value) {
+        return new Stock(ticker, name, currency, "Unspecified", value);
+    }
 }
