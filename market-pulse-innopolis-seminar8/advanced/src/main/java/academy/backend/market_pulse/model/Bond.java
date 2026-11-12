@@ -1,0 +1,29 @@
+package academy.backend.market_pulse.model;
+
+import java.math.BigDecimal;
+
+import lombok.Getter;
+
+@Getter
+public class Bond extends Instrument {
+
+    private final BigDecimal couponRate;
+    private final int maturityYear;
+
+    public Bond(String ticker, String name, Currency currency,
+                BigDecimal couponRate, int maturityYear) {
+        super(ticker, name, currency);
+        this.couponRate = couponRate;
+        this.maturityYear = maturityYear;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Облигация, купон: " + couponRate + "%, погашение: " + maturityYear;
+    }
+
+    @Override
+    public String getType() {
+        return "BOND";
+    }
+}

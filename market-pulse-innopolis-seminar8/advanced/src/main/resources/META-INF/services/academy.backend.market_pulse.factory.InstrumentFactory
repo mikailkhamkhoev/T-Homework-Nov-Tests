@@ -1,0 +1,3 @@
+academy.backend.market_pulse.factory.impl.StockFactory
+academy.backend.market_pulse.factory.impl.BondFactory
+academy.backend.market_pulse.factory.impl.EtfFactory

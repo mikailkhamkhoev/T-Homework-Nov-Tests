@@ -1,0 +1,11 @@
+services:
+  mockserver:
+    image: mockserver/mockserver:5.15.0
+    container_name: market-pulse-instruments-mock
+    ports:
+      - "1080:1080"
+    environment:
+      MOCKSERVER_INITIALIZATION_JSON_PATH: /config/expectations.json
+      MOCKSERVER_LOG_LEVEL: WARN
+    volumes:
+      - ./expectations.json:/config/expectations.json:ro

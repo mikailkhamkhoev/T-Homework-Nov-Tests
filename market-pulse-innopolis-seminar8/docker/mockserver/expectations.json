@@ -1,0 +1,68 @@
+[
+  {
+    "priority": 10,
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v1/instruments",
+      "headers": {
+        "X-Mock-Scenario": ["error"]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 500,
+      "body": "instruments-service: simulated internal error"
+    }
+  },
+  {
+    "priority": 10,
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v1/instruments",
+      "headers": {
+        "X-Mock-Scenario": ["timeout"]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": {
+        "type": "JSON",
+        "json": []
+      },
+      "delay": {
+        "timeUnit": "SECONDS",
+        "value": 10
+      }
+    }
+  },
+  {
+    "priority": 0,
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v1/instruments"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": {
+        "type": "JSON",
+        "json": [
+          {"ticker": "SBER", "name": "Сбер", "type": "STOCK", "currency": "RUB", "price": 250.00, "changePercent": 1.20},
+          {"ticker": "GAZP", "name": "Газпром", "type": "STOCK", "currency": "RUB", "price": 120.50, "changePercent": -0.80},
+          {"ticker": "LKOH", "name": "Лукойл", "type": "STOCK", "currency": "RUB", "price": 7100.00, "changePercent": 2.30},
+          {"ticker": "AAPL", "name": "Apple", "type": "STOCK", "currency": "USD", "price": 225.30, "changePercent": 0.50},
+          {"ticker": "OFZ26233", "name": "ОФЗ 26233", "type": "BOND", "currency": "RUB", "price": 780.00, "changePercent": -0.15},
+          {"ticker": "FXUS", "name": "FinEx FXUS", "type": "ETF", "currency": "USD", "price": 6.85, "changePercent": 0.90}
+        ]
+      },
+      "delay": {
+        "timeUnit": "MILLISECONDS",
+        "value": 300
+      }
+    }
+  }
+]

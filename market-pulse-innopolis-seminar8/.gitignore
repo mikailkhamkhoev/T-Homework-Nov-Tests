@@ -1,0 +1,21 @@
+target/
+*.class
+
+# Runtime-состояние CLI (семинар 7) — котировки, watchlist, история цен на диске, не часть исходников
+data/
+
+# Лог пользовательских действий (семинар 7) — runtime-состояние, не часть исходников
+logs/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS
+.DS_Store
+
+# Claude Code tooling config — not part of the seminar material
+.claude/
